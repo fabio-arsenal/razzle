@@ -1,6 +1,6 @@
 'use strict';
 
-const WebpackConfigHelpers = require('razzle-dev-utils/WebpackConfigHelpers');
+const WebpackConfigHelpers = require('@fabio-arsenal/razzle-dev-utils/WebpackConfigHelpers');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const Helpers = new WebpackConfigHelpers(process.cwd());

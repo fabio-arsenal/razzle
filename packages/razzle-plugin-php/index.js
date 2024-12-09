@@ -1,6 +1,6 @@
 'use strict';
 
-const makeLoaderFinder = require('razzle-dev-utils/makeLoaderFinder');
+const makeLoaderFinder = require('@fabio-arsenal/razzle-dev-utils/makeLoaderFinder');
 
 module.exports = {
   modifyWebpackConfig(opts) {

@@ -1,7 +1,7 @@
 'use strict';
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const createRazzleTestConfig = require('razzle/config/createRazzleTestConfig');
+const createRazzleTestConfig = require('@fabio-arsenal/razzle/config/createRazzleTestConfig');
 const plugin = require('../index');
 const { babelLoaderFinder, tsLoaderFinder } = require('../helpers');
 

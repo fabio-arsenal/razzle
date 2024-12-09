@@ -7,7 +7,7 @@ const crypto = require('crypto');
 const util = require('util');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const StartServerPlugin = require('razzle-start-server-webpack-plugin');
+const StartServerPlugin = require('@fabio-arsenal/razzle-start-server-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const getClientEnv = require('./env').getClientEnv;
@@ -19,12 +19,12 @@ const CopyPlugin = require('copy-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const modules = require('./modules');
 const postcssLoadConfig = require('postcss-load-config');
-const resolveRequest = require('razzle-dev-utils/resolveRequest');
-const logger = require('razzle-dev-utils/logger');
+const resolveRequest = require('@fabio-arsenal/razzle-dev-utils/resolveRequest');
+const logger = require('@fabio-arsenal/razzle-dev-utils/logger');
 const razzlePaths = require('./paths');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
-const webpackMajor = require('razzle-dev-utils/webpackMajor');
-const devServerMajorVersion = require('razzle-dev-utils/devServerMajor');
+const webpackMajor = require('@fabio-arsenal/razzle-dev-utils/webpackMajor');
+const devServerMajorVersion = require('@fabio-arsenal/razzle-dev-utils/devServerMajor');
 
 const hasPostCssConfigTest = () => {
   try {
@@ -38,9 +38,9 @@ const hasPostCssConfig = hasPostCssConfigTest();
 
 let webpackDevClientEntry;
 if (devServerMajorVersion > 3) {
-  webpackDevClientEntry = require.resolve('razzle-dev-utils/webpackHotDevClientV4');
+  webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClientV4');
 } else {
-  webpackDevClientEntry = require.resolve('razzle-dev-utils/webpackHotDevClient');
+  webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClient');
 }
 
 const isModuleCSS = module => {

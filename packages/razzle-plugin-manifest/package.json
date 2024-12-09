@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-plugin-manifest",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "repository": {
     "type": "git",
     "url": "https://github.com:fabio-arsenal/razzle.git",
@@ -13,8 +13,8 @@
     "email": "arefinima@gmail.com"
   },
   "peerDependencies": {
-    "razzle": "1.0.6",
-    "razzle-dev-utils": "1.0.6"
+    "@fabio-arsenal/razzle": "1.0.7",
+    "@fabio-arsenal/razzle-dev-utils": "1.0.7"
   },
   "dependencies": {
     "webpack-manifest-plugin": "^4.0.2"

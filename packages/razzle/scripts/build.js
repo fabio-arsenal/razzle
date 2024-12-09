@@ -18,12 +18,12 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const createConfig = require('../config/createConfigAsync');
 const loadRazzleConfig = require('../config/loadRazzleConfig');
-const printErrors = require('razzle-dev-utils/printErrors');
-const printWarnings = require('razzle-dev-utils/printWarnings');
+const printErrors = require('@fabio-arsenal/razzle-dev-utils/printErrors');
+const printWarnings = require('@fabio-arsenal/razzle-dev-utils/printWarnings');
 const clearConsole = require('react-dev-utils/clearConsole');
-const logger = require('razzle-dev-utils/logger');
-const FileSizeReporter = require('razzle-dev-utils/FileSizeReporter');
-const formatWebpackMessages = require('razzle-dev-utils/formatWebpackMessages');
+const logger = require('@fabio-arsenal/razzle-dev-utils/logger');
+const FileSizeReporter = require('@fabio-arsenal/razzle-dev-utils/FileSizeReporter');
+const formatWebpackMessages = require('@fabio-arsenal/razzle-dev-utils/formatWebpackMessages');
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;

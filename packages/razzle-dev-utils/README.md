@@ -29,7 +29,7 @@ There is no single entry point. You can only import individual top-level modules
 This will pretty print webpack errors to your console. It is mean to be used with Razzle's double webpack setup, where you have two webpack instances running in parallel. Otherwise the output looks almost identical to `create-react-app's` as it uses the same error formatter under the hood.
 
 ```js
-const FriendlyErrorsPlugin = require('razzle-dev-utils/FriendlyErrorsPlugin');
+const FriendlyErrorsPlugin = require('@fabio-arsenal/razzle-dev-utils/FriendlyErrorsPlugin');
 
 module.exports = {
   // ...
@@ -50,7 +50,7 @@ module.exports = {
 Pretty print an array of errors with a message. Good for CI's.
 
 ```js
-const printErrors = require('razzle-dev-utils/printErrors');
+const printErrors = require('@fabio-arsenal/razzle-dev-utils/printErrors');
 
 try {
   // do something
@@ -67,7 +67,7 @@ Example:
 
 ```js
 // razzle.config.js
-const loaderFinder = require('razzle-dev-utils/makeLoaderFinder');
+const loaderFinder = require('@fabio-arsenal/razzle-dev-utils/makeLoaderFinder');
 
 module.exports = {
   modify(config) {

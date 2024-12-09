@@ -1,5 +1,5 @@
 'use strict';
-const makeLoaderFinder = require('razzle-dev-utils/makeLoaderFinder');
+const makeLoaderFinder = require('@fabio-arsenal/razzle-dev-utils/makeLoaderFinder');
 
 const cssLoaderFinder = makeLoaderFinder('css-loader');
 const postCssLoaderFinder = makeLoaderFinder('postcss-loader');

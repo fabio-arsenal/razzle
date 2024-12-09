@@ -3,7 +3,7 @@
 const autoprefixer = require('autoprefixer');
 const merge = require('deepmerge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const paths = require('razzle/config/paths');
+const paths = require('@fabio-arsenal/razzle/config/paths');
 const postcssLoadConfig = require('postcss-load-config');
 
 const hasPostCssConfig = () => {
