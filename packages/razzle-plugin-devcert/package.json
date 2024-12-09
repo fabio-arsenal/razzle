@@ -1,7 +1,7 @@
 {
   "name": "@fabio-arsenal/razzle-plugin-devcert",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "repository": {
     "type": "git",
     "url": "https://github.com:fabio-arsenal/razzle.git",
@@ -12,8 +12,8 @@
     "devcert": "^1.2.0"
   },
   "peerDependencies": {
-    "@fabio-arsenal/razzle": "1.0.7",
-    "@fabio-arsenal/razzle-dev-utils": "1.0.7",
+    "@fabio-arsenal/razzle": "1.0.10",
+    "@fabio-arsenal/razzle-dev-utils": "1.0.10",
     "webpack": "~4||~5"
   }
 }

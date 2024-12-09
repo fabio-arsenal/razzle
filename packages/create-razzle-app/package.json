@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/create-razzle-app",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "CLI tool to bootstrap Razzle applications with no configuration",
   "main": "index.js",
   "license": "MIT",

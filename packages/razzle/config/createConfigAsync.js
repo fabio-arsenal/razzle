@@ -714,7 +714,7 @@ module.exports = (
 
         // Pretty format server errors
         config.entry.server.unshift(
-          require.resolve('razzle-dev-utils/prettyNodeErrors')
+          require.resolve('@fabio-arsenal/razzle-dev-utils/prettyNodeErrors')
         );
 
         config.plugins = [
@@ -772,7 +772,7 @@ module.exports = (
               const allFiles = []
                 .concat(
                   ...(entry.chunks || []).map(chunk =>
-                    chunk.files.map(path => !path.startsWith('/.') && config.output.publicPath + path)
+                    [...chunk.files].map(path => !path.startsWith('/.') && config.output.publicPath + path)
                   )
                 )
                 .filter(Boolean);
