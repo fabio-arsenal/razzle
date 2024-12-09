@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/babel-preset-razzle",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Babel presets for Razzle",
   "main": "index.js",
   "author": "jaredpalmer",

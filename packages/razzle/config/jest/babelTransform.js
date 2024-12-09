@@ -7,7 +7,7 @@ const fs = require('fs-extra');
 const hasBabelRc = fs.existsSync(paths.appBabelRc);
 
 const config = {
-  presets: !hasBabelRc ? [require.resolve('@fabio-arsenal/babel-preset-razzle/babel-preset-razzle')] : [],
+  presets: !hasBabelRc ? [require.resolve('@fabio-arsenal/babel-preset-razzle')] : [],
   babelrc: !!hasBabelRc,
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-plugin-graphql",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Use .graphql and .gql files with Razzle",
   "main": "index.js",
   "repository": {
@@ -18,7 +18,7 @@
   },
   "peerDependencies": {
     "graphql": "^15.5.0",
-    "@fabio-arsenal/razzle": "1.0.13",
-    "@fabio-arsenal/razzle-dev-utils": "1.0.13"
+    "@fabio-arsenal/razzle": "1.0.14",
+    "@fabio-arsenal/razzle-dev-utils": "1.0.14"
   }
 }

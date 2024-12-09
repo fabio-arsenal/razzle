@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-plugin-php",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "babel-preset-php": "^1.2.0"
   },
   "peerDependencies": {
-    "@fabio-arsenal/razzle": "1.0.13",
-    "@fabio-arsenal/razzle-dev-utils": "1.0.13"
+    "@fabio-arsenal/razzle": "1.0.14",
+    "@fabio-arsenal/razzle-dev-utils": "1.0.14"
   }
 }
