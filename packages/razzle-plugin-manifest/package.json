@@ -1,6 +1,6 @@
 {
   "name": "razzle-plugin-manifest",
-  "version": "4.2.18",
+  "version": "1.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com:jaredpalmer/razzle.git",
@@ -13,8 +13,8 @@
     "email": "arefinima@gmail.com"
   },
   "peerDependencies": {
-    "razzle": "4.2.18",
-    "razzle-dev-utils": "4.2.18"
+    "razzle": "1.0.4",
+    "razzle-dev-utils": "1.0.4"
   },
   "dependencies": {
     "webpack-manifest-plugin": "^4.0.2"

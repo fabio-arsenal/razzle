@@ -1,12 +1,12 @@
 {
   "private": true,
-  "homepage": "https://github.com/jaredpalmer/razzle#readme",
+  "homepage": "https://github.com/fabio-arsenal/razzle#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaredpalmer/razzle.git"
+    "url": "git+https://github.com/fabio-arsenal/razzle.git"
   },
   "bugs": {
-    "url": "https://github.com/jaredpalmer/razzle/issues"
+    "url": "https://github.com/fabio-arsenal/razzle/issues"
   },
   "resolutions": {
     "**/**/node-gyp": "7.0.0"
@@ -103,5 +103,5 @@
     "packages/razzle-dev-utils",
     "packages/razzle-plugin-*"
   ],
-  "version": "4.2.15"
+  "version": "1.0.4"
 }
