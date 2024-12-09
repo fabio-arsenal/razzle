@@ -1,11 +1,11 @@
 {
-  "name": "razzle-dev-utils",
-  "version": "1.0.5",
+  "name": "@fabio-arsenal/razzle-dev-utils",
+  "version": "1.0.6",
   "description": "Utilities and helpers for Razzle",
   "author": "Jared Palmer <jared@palmer.net>",
   "repository": {
     "type": "git",
-    "url": "https://github.com:jaredpalmer/razzle.git",
+    "url": "https://github.com:fabio-arsenal/razzle.git",
     "directory": "packages/razzle-dev-utils"
   },
   "license": "MIT",

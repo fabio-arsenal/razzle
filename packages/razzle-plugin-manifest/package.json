@@ -1,9 +1,9 @@
 {
-  "name": "razzle-plugin-manifest",
-  "version": "1.0.5",
+  "name": "@fabio-arsenal/razzle-plugin-manifest",
+  "version": "1.0.6",
   "repository": {
     "type": "git",
-    "url": "https://github.com:jaredpalmer/razzle.git",
+    "url": "https://github.com:fabio-arsenal/razzle.git",
     "directory": "packages/razzle-plugin-manifest"
   },
   "main": "index.js",
@@ -13,8 +13,8 @@
     "email": "arefinima@gmail.com"
   },
   "peerDependencies": {
-    "razzle": "1.0.5",
-    "razzle-dev-utils": "1.0.5"
+    "razzle": "1.0.6",
+    "razzle-dev-utils": "1.0.6"
   },
   "dependencies": {
     "webpack-manifest-plugin": "^4.0.2"

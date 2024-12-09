@@ -1,11 +1,11 @@
 {
-  "name": "razzle-plugin-bundle-analyzer",
-  "version": "1.0.5",
+  "name": "@fabio-arsenal/razzle-plugin-bundle-analyzer",
+  "version": "1.0.6",
   "description": "Use webpack bundle analyzer with Razzle",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com:jaredpalmer/razzle.git",
+    "url": "https://github.com:fabio-arsenal/razzle.git",
     "directory": "packages/razzle-plugin-bundle-analyzer"
   },
   "author": "Lucas Terra <lucasterra7@gmail.com>",
@@ -17,6 +17,6 @@
     "webpack-bundle-analyzer": "^3.9.0"
   },
   "peerDependencies": {
-    "razzle": "1.0.5"
+    "razzle": "1.0.6"
   }
 }

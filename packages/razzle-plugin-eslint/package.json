@@ -1,10 +1,10 @@
 {
-  "name": "razzle-plugin-eslint",
-  "version": "1.0.5",
+  "name": "@fabio-arsenal/razzle-plugin-eslint",
+  "version": "1.0.6",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com:jaredpalmer/razzle.git",
+    "url": "https://github.com:fabio-arsenal/razzle.git",
     "directory": "packages/razzle-plugin-eslint"
   },
   "license": "MIT",

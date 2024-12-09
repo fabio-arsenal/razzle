@@ -1,10 +1,10 @@
 {
-  "name": "razzle-plugin-php",
-  "version": "1.0.5",
+  "name": "@fabio-arsenal/razzle-plugin-php",
+  "version": "1.0.6",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com:jaredpalmer/razzle.git",
+    "url": "https://github.com:fabio-arsenal/razzle.git",
     "directory": "packages/razzle-plugin-php"
   },
   "license": "MIT",
@@ -12,7 +12,7 @@
     "babel-preset-php": "^1.2.0"
   },
   "peerDependencies": {
-    "razzle": "1.0.5",
-    "razzle-dev-utils": "1.0.5"
+    "razzle": "1.0.6",
+    "razzle-dev-utils": "1.0.6"
   }
 }

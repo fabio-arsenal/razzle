@@ -1,11 +1,11 @@
 {
-  "name": "razzle-plugin-typescript",
-  "version": "1.0.5",
+  "name": "@fabio-arsenal/razzle-plugin-typescript",
+  "version": "1.0.6",
   "description": "Use TypeScript with Razzle",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com:jaredpalmer/razzle.git",
+    "url": "https://github.com:fabio-arsenal/razzle.git",
     "directory": "packages/razzle-plugin-typescript"
   },
   "author": "Lucas Terra <lucasterra7@gmail.com>",
@@ -19,8 +19,8 @@
     "typescript": ">=4.0.3"
   },
   "peerDependencies": {
-    "razzle": "1.0.5",
-    "razzle-dev-utils": "1.0.5",
+    "razzle": "1.0.6",
+    "razzle-dev-utils": "1.0.6",
     "webpack": "~4||~5"
   }
 }
