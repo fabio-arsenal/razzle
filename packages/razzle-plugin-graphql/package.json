@@ -1,6 +1,6 @@
 {
   "name": "razzle-plugin-graphql",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Use .graphql and .gql files with Razzle",
   "main": "index.js",
   "repository": {
@@ -18,7 +18,7 @@
   },
   "peerDependencies": {
     "graphql": "^15.5.0",
-    "razzle": "1.0.4",
-    "razzle-dev-utils": "1.0.4"
+    "razzle": "1.0.5",
+    "razzle-dev-utils": "1.0.5"
   }
 }
