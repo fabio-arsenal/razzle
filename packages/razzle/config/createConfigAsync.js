@@ -371,7 +371,7 @@ module.exports = (
 
     const debugNodeExternals = razzleOptions.debug.nodeExternals;
 
-    const nodeExternalsFunc = (context, request, callback) => {
+    const nodeExternalsFunc = ({context, request}, callback) => {
       if (webpackOptions.notNodeExternalResMatch &&
         webpackOptions.notNodeExternalResMatch(request, context)
       ) {
