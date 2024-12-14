@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-dev-utils",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Utilities and helpers for Razzle",
   "author": "Jared Palmer <jared@palmer.net>",
   "repository": {
@@ -40,7 +40,7 @@
     "strip-ansi": "^6.0.0"
   },
   "peerDependencies": {
-    "webpack": "~4||~5",
-    "webpack-dev-server": "~3||~4"
+    "webpack": "5.97.1",
+    "webpack-dev-server": "5.3.4"
   }
 }

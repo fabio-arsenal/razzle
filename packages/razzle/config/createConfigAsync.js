@@ -871,7 +871,7 @@ module.exports = (
               // https://github.com/facebookincubator/create-react-app/issues/293
               watch: { ignored: /node_modules/ },
             },
-            onBeforeSetupMiddleware(server) {
+            setupMiddlewares(server) {
               // This lets us open files from the runtime error overlay.
               server.app.use(errorOverlayMiddleware());
             },
