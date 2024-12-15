@@ -1,3 +1,4 @@
 module.exports = [
-  "basic-server"
+  "basic-server",
+  "with-development-build"
 ];

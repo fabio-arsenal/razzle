@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-start-server-webpack-plugin",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Automatically start your server once Webpack's build completes.",
   "main": "dist/StartServerPlugin.js",
   "files": [

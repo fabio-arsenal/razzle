@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-dev-utils",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Utilities and helpers for Razzle",
   "author": "Jared Palmer <jared@palmer.net>",
   "repository": {
@@ -17,6 +17,7 @@
     "FileSizeReporter.js",
     "webpackHotDevClient.js",
     "webpackHotDevClientV4.js",
+    "webpackHotDevClientV5.js",
     "setPorts.js",
     "makeLoaderFinder.js",
     "WebpackConfigHelpers.js",
@@ -41,6 +42,6 @@
   },
   "peerDependencies": {
     "webpack": "5.97.1",
-    "webpack-dev-server": "5.3.4"
+    "webpack-dev-server": "5.2.0"
   }
 }

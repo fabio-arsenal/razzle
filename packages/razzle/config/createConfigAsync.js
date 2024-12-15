@@ -37,7 +37,9 @@ const hasPostCssConfigTest = () => {
 const hasPostCssConfig = hasPostCssConfigTest();
 
 let webpackDevClientEntry;
-if (devServerMajorVersion > 3) {
+if (devServerMajorVersion == 5) {
+  webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClientV5');
+} else if (devServerMajorVersion == 4) {
   webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClientV4');
 } else {
   webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClient');
@@ -871,9 +873,11 @@ module.exports = (
               // https://github.com/facebookincubator/create-react-app/issues/293
               watch: { ignored: /node_modules/ },
             },
-            setupMiddlewares(server) {
+            setupMiddlewares(middlewares, server) {
               // This lets us open files from the runtime error overlay.
-              server.app.use(errorOverlayMiddleware());
+              // FABIO
+              server?.app?.use(errorOverlayMiddleware());
+              return middlewares;
             },
           });
         } else {
