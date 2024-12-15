@@ -23,9 +23,8 @@ const resolveRequest = require('@fabio-arsenal/razzle-dev-utils/resolveRequest')
 const logger = require('@fabio-arsenal/razzle-dev-utils/logger');
 const razzlePaths = require('./paths');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
-const webpackMajor = require('@fabio-arsenal/razzle-dev-utils/webpackMajor');
-const devServerMajorVersion = require('@fabio-arsenal/razzle-dev-utils/devServerMajor');
-
+// support only devServerMajorVersion = 5
+const webpackDevClientEntry = require.resolve('webpack-dev-server/client');
 const hasPostCssConfigTest = () => {
   try {
     return !!postcssLoadConfig.sync();
@@ -36,14 +35,6 @@ const hasPostCssConfigTest = () => {
 
 const hasPostCssConfig = hasPostCssConfigTest();
 
-let webpackDevClientEntry;
-if (devServerMajorVersion == 5) {
-  webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClientV5');
-} else if (devServerMajorVersion == 4) {
-  webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClientV4');
-} else {
-  webpackDevClientEntry = require.resolve('@fabio-arsenal/razzle-dev-utils/webpackHotDevClient');
-}
 
 const isModuleCSS = module => {
   return (
@@ -498,15 +489,11 @@ module.exports = (
           },
           additionalAliases
         ),
-        plugins: [
-          webpackMajor !== 5 && PnpWebpackPlugin,
-        ].filter(x => x),
+        plugins: [].filter(x => x),
       },
       resolveLoader: {
         modules: [paths.appNodeModules, paths.ownNodeModules],
-        plugins: [
-          webpackMajor !== 5 && PnpWebpackPlugin.moduleLoader(module),
-        ].filter(x => x),
+        plugins: [].filter(x => x),
       },
       module: {
         strictExportPresence: true,
@@ -633,9 +620,7 @@ module.exports = (
     config.plugins = [
       // Ignore assets.json and chunks.json to avoid infinite recompile bug
       new webpack.WatchIgnorePlugin(
-        webpackMajor === 5
-        ? { paths: webpackOptions.watchIgnorePaths }
-        : webpackOptions.watchIgnorePaths
+        { paths: webpackOptions.watchIgnorePaths }
       ),
     ];
 
@@ -661,11 +646,10 @@ module.exports = (
         libraryTarget: 'commonjs2',
       };
 
-      if (webpackMajor === 5) {
-        config.output.library = {
-          type: 'commonjs2'
-        };
-      }
+      config.output.library = {
+        type: 'commonjs2'
+      };
+
 
       // Add some plugins...
       config.plugins = [
@@ -697,11 +681,7 @@ module.exports = (
             ],
           }
         }
-        if (webpackMajor === 5) {
-          config.optimization.emitOnErrors = razzleOptions.emitOnErrors;
-        } else {
-          config.optimization.noEmitOnErrors = !razzleOptions.emitOnErrors;
-        }
+        config.optimization.emitOnErrors = razzleOptions.emitOnErrors;
         if (hasStaticExportJs) {
           config.entry.static_export = [paths.appStaticExportJs];
         }
@@ -744,7 +724,7 @@ module.exports = (
 
       config.plugins = [
         ...config.plugins,
-        webpackMajor === 5 && new webpack.ProvidePlugin({
+        new webpack.ProvidePlugin({
           Buffer: [require.resolve('buffer'), 'Buffer'],
           process: [require.resolve('process')],
         }),
@@ -833,12 +813,10 @@ module.exports = (
             path.resolve(info.resourcePath).replace(/\\/g, '/'),
         };
 
-        if (webpackMajor === 5) {
-          config.output.library = {
-            type: 'var',
-            name: 'client',
-          };
-        }
+        config.output.library = {
+          type: 'var',
+          name: 'client',
+        };
 
         // Configure webpack-dev-server to serve our client-side bundle from
         // http://${dotenv.raw.HOST}:3001
@@ -857,56 +835,32 @@ module.exports = (
           port: devServerPort,
         };
         // If the major version is > 3, then use the newer configuration notation
-        if (devServerMajorVersion > 3) {
-          // See https://github.com/webpack/webpack-dev-server/blob/master/migration-v4.md for how this was migrated
-          config.devServer = Object.assign(config.devServer, {
-            allowedHosts: 'all',
-            client: {
-              logging: 'none', // Enable gzip compression of generated files.
-              overlay: false,
-            },
-            devMiddleware: {
-              publicPath: clientPublicPath,
-            },
-            static: {
-              // Reportedly, this avoids CPU overload on some systems.
-              // https://github.com/facebookincubator/create-react-app/issues/293
-              watch: { ignored: /node_modules/ },
-            },
-            setupMiddlewares(middlewares, server) {
-              // This lets us open files from the runtime error overlay.
-              // FABIO
-              server?.app?.use(errorOverlayMiddleware());
-              return middlewares;
-            },
-          });
-        } else {
-          config.devServer = Object.assign(config.devServer, {
-            disableHostCheck: true,
-            clientLogLevel: 'none', // Enable gzip compression of generated files.
-            publicPath: clientPublicPath,
-            noInfo: true,
+        // See https://github.com/webpack/webpack-dev-server/blob/master/migration-v4.md for how this was migrated
+        config.devServer = Object.assign(config.devServer, {
+          allowedHosts: 'all',
+          client: {
+            logging: 'none', // Enable gzip compression of generated files.
             overlay: false,
-            quiet: true, // By default files from `contentBase` will not trigger a page reload.
+          },
+          devMiddleware: {
+            publicPath: clientPublicPath,
+          },
+          static: {
             // Reportedly, this avoids CPU overload on some systems.
             // https://github.com/facebookincubator/create-react-app/issues/293
-            watchOptions: { ignored: /node_modules/ },
-            before(app) {
-              // This lets us open files from the runtime error overlay.
-              app.use(errorOverlayMiddleware());
-            },
-          });
-        }
+            watch: { ignored: /node_modules/ },
+          },
+          setupMiddlewares(middlewares, server) {
+            // This lets us open files from the runtime error overlay.
+            // FABIO
+            server?.app?.use(errorOverlayMiddleware());
+            return middlewares;
+          },
+        });
 
         // Add client-only development plugins
         config.plugins = [
           ...config.plugins,
-          devServerMajorVersion > 3
-            ? null // avoid warning since v4 automatically adds the HRM plugin when `hot` is true
-            : new webpack.HotModuleReplacementPlugin({
-                // set this true will break HtmlWebpackPlugin
-                multiStep: !clientOnly,
-              }),
           shouldUseReactRefresh
             ? new ReactRefreshWebpackPlugin({
                 overlay: {
@@ -944,19 +898,17 @@ module.exports = (
           libraryTarget: 'var',
         };
 
-        if (webpackMajor === 5) {
           config.output.library = {
             type: 'var',
             name: 'client',
           };
-        }
 
         config.plugins = [
           ...config.plugins,
           // Define production environment vars
           new webpack.DefinePlugin(webpackOptions.definePluginOptions),
           miniCssExtractPlugin,
-          IS_DEV_ENV || webpackMajor === 5 ? null : new webpack.HashedModuleIdsPlugin(),
+          IS_DEV_ENV ? null : new webpack.HashedModuleIdsPlugin(),
           IS_DEV_ENV ? null : new webpack.optimize.AggressiveMergingPlugin(),
           hasPublicDir && new CopyPlugin({
             patterns: [
@@ -978,7 +930,7 @@ module.exports = (
         if (!IS_DEV_ENV) {
           config.optimization = {
             splitChunks: webpackOptions.splitChunksConfig,
-            moduleIds: webpackMajor === 5 ? 'deterministic' : 'hashed',
+            moduleIds: 'deterministic',
             minimize: true,
             minimizer: [
               new TerserPlugin(webpackOptions.terserPluginOptions),
@@ -1009,24 +961,15 @@ module.exports = (
             ],
           }
         }
-        if (webpackMajor === 5) {
-          config.optimization.emitOnErrors = razzleOptions.emitOnErrors;
-        } else {
-          config.optimization.noEmitOnErrors = !razzleOptions.emitOnErrors;
-        }
+        config.optimization.emitOnErrors = razzleOptions.emitOnErrors;
       }
 
       if (clientOnly) {
         if (IS_DEV) {
-          if (devServerMajorVersion > 3) {
-            // See https://github.com/webpack/webpack-dev-server/blob/master/migration-v4.md for how this was migrated
-            config.devServer.static.directory = paths.appPublic;
-            if (!config.devServer.static.watch) {
-              config.devServer.static.watch = true;
-            }
-          } else {
-            config.devServer.contentBase = paths.appPublic;
-            config.devServer.watchContentBase = true;
+          // See https://github.com/webpack/webpack-dev-server/blob/master/migration-v4.md for how this was migrated
+          config.devServer.static.directory = paths.appPublic;
+          if (!config.devServer.static.watch) {
+            config.devServer.static.watch = true;
           }
         }
       }

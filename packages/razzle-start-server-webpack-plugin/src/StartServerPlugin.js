@@ -2,9 +2,6 @@ import sysPath from 'path';
 import childProcess from 'child_process';
 import webpack from 'webpack';
 
-const webpackMajorVersion =
-  typeof webpack.version !== 'undefined' ? parseInt(webpack.version[0]) : 3;
-
 export default class StartServerPlugin {
   constructor(options) {
     if (options == null) {
@@ -269,36 +266,21 @@ export default class StartServerPlugin {
 
   apply(compiler) {
     const inject = this.options.inject;
-    // webpack v4+
-    if (webpackMajorVersion >= 4) {
-      const plugin = {name: 'StartServerPlugin'};
-      // webpack v5+
-      if (webpackMajorVersion >= 5) {
-        if (inject) {
-          compiler.hooks.make.tap(plugin, (compilation) => {
-            compilation.addEntry(
-              compilation.compiler.context,
-              webpack.EntryPlugin.createDependency(this._getMonitor(), {
-                name: this.options.entryName,
-              }),
-              this.options.entryName,
-              () => {}
-            );
-          });
-        }
-      } else {
-        if (inject) {
-          compiler.options.entry = this._amendEntry(compiler.options.entry);
-        }
-      }
-      compiler.hooks.afterEmit.tapAsync(plugin, this.afterEmit);
-    } else {
-      // webpack v3-
-      if (inject) {
-        compiler.options.entry = this._amendEntry(compiler.options.entry);
-      }
-      compiler.plugin('after-emit', this.afterEmit);
+    // webpack v5+
+    const plugin = {name: 'StartServerPlugin'};
+    if (inject) {
+      compiler.hooks.make.tap(plugin, (compilation) => {
+        compilation.addEntry(
+          compilation.compiler.context,
+          webpack.EntryPlugin.createDependency(this._getMonitor(), {
+            name: this.options.entryName,
+          }),
+          this.options.entryName,
+          () => {}
+        );
+      });
     }
+    compiler.hooks.afterEmit.tapAsync(plugin, this.afterEmit);
   }
 }
 

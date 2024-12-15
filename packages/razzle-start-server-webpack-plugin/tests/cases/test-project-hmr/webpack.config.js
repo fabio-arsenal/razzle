@@ -1,9 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
 const StartServerPlugin = require('../../SilentPlugin');
 
-const webpackMajorVersion =
-  typeof webpack.version !== 'undefined' ? parseInt(webpack.version[0]) : 3;
 
 const is_test = process.env.NODE_ENV == 'test';
 
@@ -21,5 +18,5 @@ module.exports = Object.assign(
       filename: 'server.js',
     },
   },
-  webpackMajorVersion !== 3 ? {mode: 'development'} : {}
+  {mode: 'development'}
 );
