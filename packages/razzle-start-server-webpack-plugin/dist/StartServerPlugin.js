@@ -13,8 +13,6 @@ var _webpack = _interopRequireDefault(require("webpack"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const webpackMajorVersion = typeof _webpack.default.version !== 'undefined' ? parseInt(_webpack.default.version[0]) : 3;
-
 class StartServerPlugin {
   constructor(options) {
     if (options == null) {
@@ -317,36 +315,21 @@ class StartServerPlugin {
   }
 
   apply(compiler) {
-    const inject = this.options.inject; // webpack v4+
+    const inject = this.options.inject; // webpack v5+
 
-    if (webpackMajorVersion >= 4) {
-      const plugin = {
-        name: 'StartServerPlugin'
-      }; // webpack v5+
+    const plugin = {
+      name: 'StartServerPlugin'
+    };
 
-      if (webpackMajorVersion >= 5) {
-        if (inject) {
-          compiler.hooks.make.tap(plugin, compilation => {
-            compilation.addEntry(compilation.compiler.context, _webpack.default.EntryPlugin.createDependency(this._getMonitor(), {
-              name: this.options.entryName
-            }), this.options.entryName, () => {});
-          });
-        }
-      } else {
-        if (inject) {
-          compiler.options.entry = this._amendEntry(compiler.options.entry);
-        }
-      }
-
-      compiler.hooks.afterEmit.tapAsync(plugin, this.afterEmit);
-    } else {
-      // webpack v3-
-      if (inject) {
-        compiler.options.entry = this._amendEntry(compiler.options.entry);
-      }
-
-      compiler.plugin('after-emit', this.afterEmit);
+    if (inject) {
+      compiler.hooks.make.tap(plugin, compilation => {
+        compilation.addEntry(compilation.compiler.context, _webpack.default.EntryPlugin.createDependency(this._getMonitor(), {
+          name: this.options.entryName
+        }), this.options.entryName, () => {});
+      });
     }
+
+    compiler.hooks.afterEmit.tapAsync(plugin, this.afterEmit);
   }
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "@fabio-arsenal/razzle-plugin-typescript",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Use TypeScript with Razzle",
   "main": "index.js",
   "repository": {
@@ -19,8 +19,8 @@
     "typescript": ">=4.0.3"
   },
   "peerDependencies": {
-    "@fabio-arsenal/razzle": "1.0.19",
-    "@fabio-arsenal/razzle-dev-utils": "1.0.19",
+    "@fabio-arsenal/razzle": "1.0.20",
+    "@fabio-arsenal/razzle-dev-utils": "1.0.20",
     "webpack": "~4||~5"
   }
 }

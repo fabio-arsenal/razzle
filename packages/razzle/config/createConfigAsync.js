@@ -908,7 +908,7 @@ module.exports = (
           // Define production environment vars
           new webpack.DefinePlugin(webpackOptions.definePluginOptions),
           miniCssExtractPlugin,
-          IS_DEV_ENV ? null : new webpack.HashedModuleIdsPlugin(),
+          null,
           IS_DEV_ENV ? null : new webpack.optimize.AggressiveMergingPlugin(),
           hasPublicDir && new CopyPlugin({
             patterns: [
