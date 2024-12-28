@@ -58,6 +58,7 @@ module.exports = (
         moduleDirectories: ['node_modules'],
         moduleNameMapper: {
           '^react-native$': 'react-native-web',
+          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
         setupFilesAfterEnv: setupTestsFile ? [setupTestsFile] : []

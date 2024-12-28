@@ -2,7 +2,7 @@ const got = require('got');
 
 async function main() {
   const res = await got(
-    'https://api.github.com/repos/jaredpalmer/razzle/releases',
+    'https://api.github.com/repos/fabio-arsenal/razzle/releases',
     {
       responseType: 'json',
     }
@@ -104,7 +104,7 @@ async function main() {
 
   // Add compare link
   finalMessage.push(
-    `https://github.com/jaredpalmer/razzle/compare/${firstVersion}...${lastVersion}`
+    `https://github.com/fabio-arsenal/razzle/compare/${firstVersion}...${lastVersion}`
   );
 
   return {
